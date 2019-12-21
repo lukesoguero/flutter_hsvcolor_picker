@@ -831,8 +831,8 @@ class _WheelPickerState extends State<WheelPicker> {
 
 class _WheelPainter extends CustomPainter{
 
-  static double strokeWidth = 8;
-  static double doubleStrokeWidth = 16;
+  static double strokeWidth = 16;
+  static double doubleStrokeWidth = 32;
   static double radio(Size size)=> Math.min(size.width, size.height).toDouble() / 2 - _WheelPainter.strokeWidth;
   static double squareRadio(double radio) => (radio - _WheelPainter.strokeWidth)/ 1.414213562373095;
 
@@ -870,24 +870,24 @@ class _WheelPainter extends CustomPainter{
 
 
     //Palette
-    Rect rect = Rect.fromLTWH(center.dx - squareRadio, center.dy - squareRadio, squareRadio * 2, squareRadio * 2);
-    RRect rRect = RRect.fromRectAndRadius(rect, Radius.circular(4));
+    // Rect rect = Rect.fromLTWH(center.dx - squareRadio, center.dy - squareRadio, squareRadio * 2, squareRadio * 2);
+    // RRect rRect = RRect.fromRectAndRadius(rect, Radius.circular(4));
 
-    Shader horizontal = new LinearGradient(
-      begin: Alignment.centerLeft,
-      end: Alignment.centerRight,
-      colors: [Colors.white, HSVColor.fromAHSV(1.0, this.color.hue, 1.0, 1.0).toColor()],
-    ).createShader(rect);
-    canvas.drawRRect(rRect, new Paint()..style=PaintingStyle.fill..shader = horizontal);
+    // Shader horizontal = new LinearGradient(
+    //   begin: Alignment.centerLeft,
+    //   end: Alignment.centerRight,
+    //   colors: [Colors.white, HSVColor.fromAHSV(1.0, this.color.hue, 1.0, 1.0).toColor()],
+    // ).createShader(rect);
+    // canvas.drawRRect(rRect, new Paint()..style=PaintingStyle.fill..shader = horizontal);
     
-    Shader vertical = const LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: [Colors.transparent, Colors.black],
-    ) .createShader(rect);
-    canvas.drawRRect(rRect, new Paint()..style=PaintingStyle.fill..shader = vertical);
+    // Shader vertical = const LinearGradient(
+    //   begin: Alignment.topCenter,
+    //   end: Alignment.bottomCenter,
+    //   colors: [Colors.transparent, Colors.black],
+    // ) .createShader(rect);
+    // canvas.drawRRect(rRect, new Paint()..style=PaintingStyle.fill..shader = vertical);
 
-    canvas.drawRRect(rRect, new Paint()..style=PaintingStyle.stroke..color = Colors.grey);
+    // canvas.drawRRect(rRect, new Paint()..style=PaintingStyle.stroke..color = Colors.grey);
  
 
     //Thumb
@@ -899,11 +899,11 @@ class _WheelPainter extends CustomPainter{
 
 
     //Thumb
-    double paletteX = Wheel.saturationToVector(this.color.saturation, squareRadio, center.dx);
-    double paletteY = Wheel.valueToVector(this.color.value, squareRadio, center.dy);
-    Offset paletteVector=new Offset(paletteX, paletteY);
-    canvas.drawCircle(paletteVector, 12, paintBlack);
-    canvas.drawCircle(paletteVector, 12, paintWhite);
+    // double paletteX = Wheel.saturationToVector(this.color.saturation, squareRadio, center.dx);
+    // double paletteY = Wheel.valueToVector(this.color.value, squareRadio, center.dy);
+    // Offset paletteVector=new Offset(paletteX, paletteY);
+    // canvas.drawCircle(paletteVector, 12, paintBlack);
+    // canvas.drawCircle(paletteVector, 12, paintWhite);
   }
 
   @override
@@ -2033,7 +2033,7 @@ class ColorPickerState extends State<ColorPicker> {
 
 
   //pickers
-  int _index = 4;
+  int _index = 3;
   List<_IPicker> _pickers;
   void _pickerOnChanged(_IPicker value) => this._index=this._pickers.indexOf(value);
 
@@ -2252,15 +2252,16 @@ class ColorPickerState extends State<ColorPicker> {
     switch (orientation) {
 
       case Orientation.portrait:
-        return new Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              this._buildHead(),
-              this._buildDropdown2(),
-              this._buildBody(),
-              this._buildAlphaPicker(),
-            ]
-        );
+        // return new Column(
+        //     mainAxisSize: MainAxisSize.min,
+        //     children: <Widget>[
+        //       this._buildHead(),
+        //       this._buildDropdown2(),
+        //       this._buildBody(),
+        //       this._buildAlphaPicker(),
+        //     ]
+        // );
+        return this._buildBody();
 
       case Orientation.landscape:
         return new Row(
