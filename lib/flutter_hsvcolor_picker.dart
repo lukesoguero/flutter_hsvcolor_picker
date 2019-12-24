@@ -1235,9 +1235,9 @@ class _PaletteValuePickerState extends State<PaletteValuePicker> {
 
           //Palette
           new SizedBox(
-              height: 280.0,
+              height: 380.0,
               child: new Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
                   child: new PalettePicker(
                       position: new Offset(this.color.hue, this.color.saturation),
                       onChanged: this.hueSaturationOnChange,
@@ -1252,13 +1252,13 @@ class _PaletteValuePickerState extends State<PaletteValuePicker> {
           ),
 
           //Slider
-          new SliderPicker(
-              min: 0.0,
-              max: 1.0,
-              value: this.color.value,
-              onChanged: this.valueOnChange,
-              colors: this.valueColors
-          )
+          // new SliderPicker(
+          //     min: 0.0,
+          //     max: 1.0,
+          //     value: this.color.value,
+          //     onChanged: this.valueOnChange,
+          //     colors: this.valueColors
+          // )
 
         ]
     );
@@ -2033,7 +2033,7 @@ class ColorPickerState extends State<ColorPicker> {
 
 
   //pickers
-  int _index = 3;
+  int _index = 6;
   List<_IPicker> _pickers;
   void _pickerOnChanged(_IPicker value) => this._index=this._pickers.indexOf(value);
 
