@@ -1252,13 +1252,16 @@ class _PaletteValuePickerState extends State<PaletteValuePicker> {
           ),
 
           //Slider
-          // new SliderPicker(
-          //     min: 0.0,
-          //     max: 1.0,
-          //     value: this.color.value,
-          //     onChanged: this.valueOnChange,
-          //     colors: this.valueColors
-          // )
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: new SliderPicker(
+              min: 0.0,
+              max: 1.0,
+              value: this.color.value,
+              onChanged: this.valueOnChange,
+              colors: this.valueColors
+            )
+          )
 
         ]
     );
